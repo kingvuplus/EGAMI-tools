@@ -1,0 +1,196 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: enigma2 - spzWheather\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-02 12:19-0700\n"
+"PO-Revision-Date: 2015-02-02 22:44+0100\n"
+"Last-Translator: mimi74\n"
+"Language-Team: french-EGAMI\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SourceCharset: iso-8859-15\n"
+
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Amount of Precipitacion"
+msgstr "Quantité précipitations"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "City"
+msgstr "Ville"
+
+msgid "City or Postal Code"
+msgstr "Ville ou code postal"
+
+msgid "Cloudiness"
+msgstr "Nébulosité"
+
+msgid "Comunity"
+msgstr "Communauté autonome"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "Current: %s"
+msgstr "Actuel: %s"
+
+msgid "Default"
+msgstr "Par défaut"
+
+msgid "Delete"
+msgstr "Eliminer"
+
+msgid "Detailed forecast"
+msgstr "Prévisions détaillées"
+
+msgid "Domain"
+msgstr "Domaine"
+
+msgid "Downloading"
+msgstr "Téléchargement"
+
+msgid "Downloading Detailed image 5 day forecast"
+msgstr "Téléchargement image prévisions détaillées (5 jours)"
+
+msgid "East"
+msgstr "Est"
+
+msgid "Edit"
+msgstr "Editarer"
+
+msgid "Getting weather information..."
+msgstr "Obtention informations météorologique..." 
+
+msgid "High Temperature"
+msgstr "Carte températures haute"
+
+msgid "Humidity"
+msgstr "Humidité"
+
+msgid "Images satellite"
+msgstr "Images satellite"
+
+msgid "Language"
+msgstr "Langage"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "Low Temperature"
+msgstr "Carte températures basses"
+
+msgid "Max"
+msgstr "Maximum"
+
+msgid "Min"
+msgstr "Minimum"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid ""
+"No locations defined...\n"
+"Press 'Menu' to do that."
+msgstr ""
+"Pas de lieux définis...\n"
+"Pressez 'MENU' pour le faire."
+
+msgid "North"
+msgstr "Nord"
+
+msgid "Pressure"
+msgstr "Pression"
+
+msgid "Previous"
+msgstr "Précédent"
+
+msgid "Really delete this WeatherPlugin Entry?"
+msgstr "Vraiment supprimer cette entrée MétéoPlugiciel?"
+
+msgid "Satellite"
+msgstr "Carte satellite"
+
+msgid "Save"
+msgstr "Sauver"
+
+msgid "Select satellite image"
+msgstr "Selection image satellite"
+
+msgid "Setup"
+msgstr "Configurer"
+
+msgid "South"
+msgstr "Sud"
+
+msgid "Symbols"
+msgstr "Symboles"
+
+msgid "Temperature"
+msgstr "Température"
+
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "Tomorrow"
+msgstr "Demain"
+
+msgid "UV Index"
+msgstr "Index UV"
+
+msgid "Wait"
+msgstr "Attendez"
+
+msgid "Want to download forecast of the next 4 days?"
+msgstr "Souhaitez-vous télécharger la prévision des quatre jours suivants?"
+
+msgid "Weather Info"
+msgstr "Information météorologique"
+
+msgid "West"
+msgstr "Ouest"
+
+msgid "Wind"
+msgstr "Vent"
+
+msgid "Wind Speed"
+msgstr "Vitesse du vent"
+
+msgid "accuWheater Info"
+msgstr "Info de accuWheater"
+
+msgid "accuWheater.com Information"
+msgstr "accuWheater.com Information météorologique"
+
+msgid "foreca.com Wheater Information"
+msgstr "foreca.com Information météorologique"
+
+msgid "google.com API Wheater"
+msgstr "google.com API Information météorologique"
+
+msgid "of"
+msgstr "de"
+
+msgid "spazeTeam Weather Info"
+msgstr "spazeTeam Info Météo"
+
+msgid "spazeTeam Weather info Plugin"
+msgstr "Plugiciel informations météo de spazeTeam"
+
+msgid "spazeTeam WeatherPlugin"
+msgstr "spazeTeam plugiciel météo"
+
+msgid "spazeTeam WeatherPlugin: Edit Entry"
+msgstr "spazeTeam plugiciel météo: Editer entrée"
+
+msgid "spazeTeam WeatherPlugin: List of Entries"
+msgstr "spazeTeam plugiciel météo: Liste des entrées"
+
+msgid "spazeTeam WeatherPlugin: Select Source"
+msgstr "spazeTeam plugiciel météo: Sélectionner source"
