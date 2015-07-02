@@ -238,14 +238,14 @@ class EmuManager(Screen):
 
     def keyYellow(self):
         m = checkkernel()
-        if m == 1:
+        if m == 0:
             staturl = 'http://sodo13.zz.mu/softcam/catalog_enigma2_softcam.xml'
             downfile = '/tmp/.catalog.xml'
             if fileExists(downfile):
                 os.remove(downfile)
             self.session.openWithCallback(self.EGConnectionCallback, EGConnectionAnimation, staturl, downfile)
         else:
-            self.session.open(MessageBox, _('Sorry: Wrong image in flash found. You have to install in flash EGAMI Image'), MessageBox.TYPE_INFO, 3)
+            self.session.open(MessageBox, _('Sorry: Some Egami Emu Not Work For Now. Please Press Key Green and Choose Gestionnaire logiciel For Download Your Cam. After Choose Egami Cam Manager For Activate Your EMU'), MessageBox.TYPE_INFO, 15)
 
     def keyBlue(self):
         m = checkkernel()
