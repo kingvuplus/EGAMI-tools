@@ -1,38 +1,62 @@
-from Components.Label import Label
+from boxbranding import getMachineBuild
 from Components.config import config, configfile
-from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_SKIN_IMAGE, SCOPE_SKIN, SCOPE_CURRENT_SKIN
-from Tools.LoadPixmap import LoadPixmap
-from os import path as os_path
 from enigma import eConsoleAppContainer
 import re, string
 import os
 from socket import *
 import socket
-from Components.About import about
 
 def checkkernel():
     mycheck = 0
     if not fileExists('/media/usb'):
         os.system('mkdir /media/usb')
+        
     if os.path.isfile('/proc/stb/info/vumodel') and os.path.isfile('/proc/stb/info/version'):
         if open('/proc/stb/info/vumodel').read().startswith('uno') or open('/proc/stb/info/vumodel').read().strip() == 'duo' or open('/proc/stb/info/vumodel').read().startswith('solo') or open('/proc/stb/info/vumodel').read().startswith('ultimo') or open('/proc/stb/info/vumodel').read().startswith('solo2') or open('/proc/stb/info/vumodel').read().startswith('duo2'):
             if about.getKernelVersionString() == '3.13.5' or about.getKernelVersionString() == '3.9.6':
                 mycheck = 1
-        else:
-            mycheck = 0
-        return mycheck
+    else:
+        mycheck = 0
+    return mycheck
+
+
+def preapreEmud():
+    if not os.path.exists('/usr/tuxbox/config'):
+        os.makedirs('/usr/tuxbox/config')
+    if not fileExists('/etc/egami/emuname'):
+        print '[EGAMI-EMUD] emuname file not exist! Creating it...'
+        emuname_file = open('/etc/egami/emuname', 'w')
+        emuname_file.write('Common Interface')
+        emuname_file.close()
+    else:
+        print '[EGAMI-EMUD] emuname file exist'
+    if not fileExists('/etc/egami/emunumber'):
+        print '[EGAMI-EMUD] emunumber file not exist! Creating it...'
+        emunumber_file = open('/etc/egami/emunumber', 'w')
+        emunumber_file.write('1')
+        emunumber_file.close()
+    else:
+        print '[EGAMI-EMUD] emunumber file exist'
+    emulistxml = '<?xml version="1.0" encoding="iso-8859-1"?>\n<emulist>\n<emu emulator="Common Interface" osdname="DCCAMD" emuscript="/usr/emu_scripts/dccamd.xml" filecheck=""/>\n</emulist>'
+    if not fileExists('/usr/tuxbox/config/emulist.xml'):
+        print '[EGAMI-EMUD] emulist.xml file not exist! Creating it...'
+        emunumber_file = open('/usr/tuxbox/config/emulist.xml', 'w')
+        emunumber_file.write(emulistxml)
+        emunumber_file.close()
+    else:
+        print '[EGAMI-EMUD] emulist.xml file exist'
 
 
 def readEmuName():
     try:
-        fp = open('/etc/magic/.emuname', 'r')
+        fp = open('/etc/egami/emuname', 'r')
         emuLine = fp.readline()
         fp.close()
         emuLine = emuLine.strip('\n')
         return emuLine
     except:
-        return 'CI'
+        return 'Common Interface'
 
 
 def readEcmFile():
@@ -48,14 +72,18 @@ def readEcmFile():
 def sendCmdtoEGEmuD(cmd):
     try:
         s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        s.connect('/tmp/magic.socket')
+        s.connect('/tmp/egami.socket')
         print '[EG-EMU MANAGER] communicate with socket'
         s.send(cmd)
         s.close()
     except socket.error:
-        print '[EG-EMU MANAGER] could not communicate with socket'
+        print '[EG-EMU MANAGER] could not communicate with socket, lets try to start emud'
+        cmd = '/bin/emud'
+        runBackCmd(cmd)
         if s is not None:
             s.close()
+
+    return
 
 
 def runBackCmd(cmd):
@@ -139,4 +167,3 @@ def wyszukaj_re(szukana_fraza):
 
     zrodlo.close()
     return False
-
