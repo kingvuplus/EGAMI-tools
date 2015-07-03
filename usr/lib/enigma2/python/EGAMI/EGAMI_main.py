@@ -148,7 +148,7 @@ class EgamiMainPanel(Screen):
         try:
             from Plugins.Extensions.EGAMINews.plugin import EGAMIMainNews
             self.session.open(EGAMIMainNews)
-        else:
+        except:
             self.session.openWithCallback(self.runUpgrade, MessageBox, _('Do you want to update your EGAMI image?') + '\n' + _('\nAfter pressing OK, please wait!'))
 
     def keyYellow(self):
