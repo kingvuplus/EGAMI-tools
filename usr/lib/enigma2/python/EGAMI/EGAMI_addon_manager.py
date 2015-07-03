@@ -261,7 +261,7 @@ class EG_InternetAddons(Screen):
     def uruchomInstalator(self):
         if self.state == self.STATE_DOWNLOAD:
             self.state = self.STATE_IDLE
-            self.fileUrl = 'http://sodo13.zz.mu/egami/sodo/' + self.saved_url
+            self.fileUrl = 'http://enigma-spark.com/egami/' + self.saved_url
             print self.fileUrl
             if os.path.exists('/tmp/Addon.ipk'):
                 os.system('rm /tmp/Addon.ipk')
@@ -373,7 +373,7 @@ class EG_InternetAddons(Screen):
 
         info_txt = str(info_txt)
         info_pic = str(info_pic)
-        self.root_url = 'http://sodo13.zz.mu/egami/sodo/'
+        self.root_url = 'http://enigma-spark.com/egami/'
         infoBox = self.session.open(EGAddonInfo, str(self.root_url + info_txt), str(self.root_url + info_pic))
         if self.multi:
             selection = self['menu'].getCurrent()
@@ -707,7 +707,7 @@ class EGAddonMenu(Screen):
         item = self['list'].getCurrent()
         selected = item[0][0]
         if selected == _('Download EGAMI Addons'):
-            staturl = 'http://sodo13.zz.mu/egami/sodo/catalog_enigma2.xml'
+            staturl = 'http://enigma-spark.com/egami/catalog_enigma2.xml'
             downfile = '/tmp/.catalog.xml'
             if fileExists(downfile):
                 os.remove(downfile)
