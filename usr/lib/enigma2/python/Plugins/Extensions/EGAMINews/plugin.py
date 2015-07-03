@@ -46,14 +46,14 @@ from EGAMI.EGAMI_tools import checkkernel
 
 def main(session, **kwargs):
     m = checkkernel()
-    if m == 0:
+    if m == 1:
         try:
             session.open(EGAMIMainNews)
         except:
             print '[EGAMINews] Plugin execution failed'
 
     else:
-        session.open(MessageBox, _('Sorry: This Image Is Not Officiell For Your VU+. You Cant Update your EGAMI Image On Line. Desactivated By SODO'), MessageBox.TYPE_INFO, 10)
+        session.open(MessageBox, _('Sorry: Wrong Image Detected You Have To Install EGAMI On Flash'), MessageBox.TYPE_INFO, 10)
 
 
 def start_update_notification(reason, **kwargs):
