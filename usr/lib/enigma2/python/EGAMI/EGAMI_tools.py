@@ -5,6 +5,7 @@ import re, string
 import os
 from socket import *
 import socket
+from Components.About import about
 
 def checkkernel():
     mycheck = 0
