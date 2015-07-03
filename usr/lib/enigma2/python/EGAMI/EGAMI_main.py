@@ -145,12 +145,11 @@ class EgamiMainPanel(Screen):
             self.close()
 
     def keyGreen(self):
-        m = checkkernel()
-        if m == 0:
+        try:
             from Plugins.Extensions.EGAMINews.plugin import EGAMIMainNews
             self.session.open(EGAMIMainNews)
         else:
-            self.session.open(MessageBox, _('Sorry: This Image Is Not Officiell For Your VU+. You Cant Update your EGAMI Image On Line. Desactivated By SODO'), MessageBox.TYPE_INFO, 10)
+            self.session.openWithCallback(self.runUpgrade, MessageBox, _('Do you want to update your EGAMI image?') + '\n' + _('\nAfter pressing OK, please wait!'))
 
     def keyYellow(self):
         pass
@@ -158,9 +157,10 @@ class EgamiMainPanel(Screen):
     def keyOk(self):
         item = self['list'].getCurrent()
         selected = item[0][0]
-#       if selected == _('EGAMI Cam Center'):
-#           from Plugins.Egami.SoftcamSetup.plugin import CamsetupSelection
-#           self.session.open(CamsetupSelection)
+        if selected == _('EGAMI Cam Center'):
+            self.currentIndexMenu = self['list'].getSelectedIndex()
+            from EGAMI.EGAMI_Blue import EmuManager
+            self.session.open(EmuManager)
         if selected == _('EGAMI Buttons'):
             self.currentIndexMenu = self['list'].getSelectedIndex()
             from Screens.ButtonSetup import ButtonSetup
@@ -300,7 +300,7 @@ class EgamiMainPanel(Screen):
         self.subMenu = False
         self.setTitle(_('EGAMI Panel - Main Menu'))
         self.list = []
-#       self.list.append(EgamiMenuEntryComponent('EGAMI Cam Center', _('Start/stop/select soft-cam'), _('Start/stop/select your cam, You need to install first a softcam'), 'main/cam_center'))
+        self.list.append(EgamiMenuEntryComponent('EGAMI Cam Center', _('Start/stop/select soft-cam'), _('Start/stop/select your cam, You need to install first a softcam'), 'main/cam_center'))
         self.list.append(EgamiSeparatorEntryComponent('separator'))
         self.list.append(EgamiMenuEntryComponent('EGAMI Buttons', _('Change some keys functions'), _('You can setup here what buttons should do'), 'main/quickbutton'))
         self.list.append(EgamiMenuEntryComponent('EGAMI User Scripts', _('Run Your scripts from /usr/scripts'), _('It is running scripts from /usr/script'), 'main/user_script'))
