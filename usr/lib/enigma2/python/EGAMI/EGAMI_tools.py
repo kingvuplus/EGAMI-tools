@@ -1,4 +1,3 @@
-from boxbranding import getMachineBuild
 from Components.config import config, configfile
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_SKIN_IMAGE, SCOPE_SKIN, SCOPE_CURRENT_SKIN
 from enigma import eConsoleAppContainer
